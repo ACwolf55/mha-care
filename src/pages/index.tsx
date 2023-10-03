@@ -1,11 +1,12 @@
 import Head from "next/head";
 import Link from "next/link";
+import ChatDialog from "~/components/ChatDialog";
 import ChatTest from "~/components/ChatTest";
 
 import { api } from "~/utils/api";
 
 export default function Home() {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   return (
     <>
@@ -16,11 +17,11 @@ export default function Home() {
       </Head>
       <main>
 
-
-      <ChatTest/>
+    <p>Hello!</p>
+      <ChatDialog/>
 
       
       </main>
     </>
-  );
+  )
 }

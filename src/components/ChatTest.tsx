@@ -27,29 +27,24 @@ type Message = {
 const ChatTest = () => {
   const [messages, setMessages] = useState<Message[]>([]);
 
-  useEffect(() => {
-    // Fetch initial chat messages
-      const initialMessages = await api.messages.fetch();
-      setMessages(initialMessages);
+  // useEffect(() => {
+  //   // Fetch initial chat messages
+  //     const initialMessages = await api.messages.fetch();
+  //     setMessages(initialMessages);
 
 
 
 
-    // Subscribe to new chat messages
-    const chatSubscription = trpc.messages.subscribe((message) => {
-      setMessages((prevMessages) => [...prevMessages, message]);
-    });
+  //   // Subscribe to new chat messages
+  //   const chatSubscription = trpc.messages.subscribe((message) => {
+  //     setMessages((prevMessages) => [...prevMessages, message]);
+  //   });
 
-    return () => {
-      // Cleanup: unsubscribe from chat messages
-      chatSubscription.unsubscribe();
-    };
-  }, [trpc]);
-
-  const sendMessage = async (text: string) => {
-    // Send the message to the TRPC API
-    await trpc.messages.send(text);
-  };
+  //   return () => {
+  //     // Cleanup: unsubscribe from chat messages
+  //     chatSubscription.unsubscribe();
+  //   };
+  // }, [trpc]);
 
   return (
     <div>
